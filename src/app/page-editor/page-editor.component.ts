@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import PageService from '../services/PageService';
 
@@ -10,31 +10,31 @@ import PageService from '../services/PageService';
 export class PageEditorComponent implements OnInit {
 
   constructor(private service: PageService,
-              private router: ActivatedRoute) { }
+              private router: ActivatedRoute) {
+  }
 
   page = {
     _id: '',
     title: 'Dummy title',
     rows: []
-  }
-  websiteId = ''
-  pageId = ''
+  };
+  websiteId = '';
+  pageId = '';
 
   ngOnInit() {
     this.router.params.subscribe(params => {
       this.websiteId = params.websiteId;
       this.pageId = params.pageId;
       this.service.findPageById(this.websiteId, this.pageId)
-        .then(page => this.page = page)
-    })
+        .then(page => this.page = page);
+    });
   }
 
-  appendRow = () =>
-  {
+  appendRow() {
     this.page.rows.push({
       title: 'New Row',
       columns: []
-    })
+    });
     this.service.updatePage(this.websiteId, this.pageId, this.page);
   }
 
