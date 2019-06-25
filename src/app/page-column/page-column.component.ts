@@ -31,7 +31,7 @@ export class PageColumnComponent implements OnInit {
       text: 'Heading Widget'
     };
     this.column.widgets.push(widget);
-    this.page.updatePage(this.websiteId, this.pageId, this.page);
+    this.service.updatePage(this.websiteId, this.pageId, this.page);
   }
 
 }

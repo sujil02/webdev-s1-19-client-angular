@@ -1,0 +1,13 @@
+<span (click)="hideToolbar=true">
+  <i class="fa fa-gear"
+     (mouseenter)="hideToolbar=false"></i>
+  <span
+    [hidden]="hideToolbar">
+    <i (click)="deleteRow()"
+       class="fa fa-remove"></i>
+    <i (click)="moveRowUp()"
+       class="fa fa-arrow-up"></i>
+    <i (click)="moveRowDown()"
+       class="fa fa-arrow-down"></i>
+  </span>
+</span>

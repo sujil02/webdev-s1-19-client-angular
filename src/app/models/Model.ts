@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import rows from '../services/data';
 import Column from './Column';
 import Row from './Row';
 import Widget from './Widget';
 import PageInterface from './PageInterface';
-import LayoutService from '../services/LayoutService'
+import LayoutService from '../services/LayoutService';
 
 @Injectable()
 export default class Model
   implements PageInterface {
-  constructor(private service: LayoutService) {}
+  constructor(private service: LayoutService) {
+  }
 
   rows = rows();
 
@@ -29,6 +30,7 @@ export default class Model
         ]
       ));
   }
+
   insertRowAfter(row) {
     const rowIndex = this.rows.indexOf(row);
     this.rows.splice(
@@ -41,6 +43,7 @@ export default class Model
         ]
       ));
   }
+
   insertColumnAfter(row, afterColumn) {
     const colIndex = row.columns.indexOf(afterColumn);
     row.columns.splice(
@@ -48,15 +51,18 @@ export default class Model
       0,
       new Column('new column', 1));
   }
+
   deleteColumn(row, column) {
     const colIndex = row.columns.indexOf(column);
     row.columns.splice(colIndex, 1);
   }
+
   spanColumnUp(row: any, col: any) {
     if (col.span < 12) {
       col.span++;
     }
   }
+
   spanColumnDown(row: any, col: any) {
     if (col.span > 1) {
       col.span--;
@@ -74,6 +80,7 @@ export default class Model
           1)[0]);
     }
   }
+
 
   moveColumnRight(row: any, col: any) {
     const colIndex = row.columns.indexOf(col);
@@ -130,6 +137,27 @@ export default class Model
     if (widgetIndex < col.widgets.length - 1) {
       col.widgets.splice(widgetIndex + 1, 0,
         col.widgets.splice(widgetIndex, 1)[0]);
+    }
+  }
+
+  moveRowUp(page: any, row: any) {
+    const rowIndex = page.rows.indexOf(row);
+    if (rowIndex > 0) {
+      page.rows.splice(rowIndex - 1, 0,
+        page.rows.splice(rowIndex, 1)[0]);
+    }
+  }
+
+  deleteRow(page: any, row: any) {
+    const rowIndex = page.rows.indexOf(row);
+    page.rows.splice(rowIndex, 1);
+  }
+
+  moveRowDown(page: any, row: any) {
+    const rowIndex = page.rows.indexOf(row);
+    if (rowIndex < page.rows.length - 1) {
+      page.rows.splice(rowIndex + 1, 0,
+        page.rows.splice(rowIndex, 1)[0]);
     }
   }
 }
