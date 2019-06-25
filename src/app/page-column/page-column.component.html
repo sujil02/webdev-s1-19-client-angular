@@ -1,14 +1,21 @@
 <app-column-toolbar
+  [pageId]="pageId"
+  [page]="page"
+  [websiteId]="websiteId"
   [row]="row"
   [column]="column">
 </app-column-toolbar>
 <div>
   New Column
 </div>
-<app-widget [row]="row"
-            [column]="column"
-            [widget]="widget"
-            *ngFor="let widget of column.widgets">
+<app-widget
+  [pageId]="pageId"
+  [page]="page"
+  [websiteId]="websiteId"
+  [row]="row"
+  [column]="column"
+  [widget]="widget"
+  *ngFor="let widget of column.widgets">
 </app-widget>
 <button (click)="addWidget()">
   Add Widget
