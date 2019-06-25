@@ -37,7 +37,7 @@ export class WebsiteListComponent implements OnInit {
       .then(status => {
         if (status.deletedCount === 1) {
           const websiteIndex = this.websites.indexOf(website);
-          this.websites.splice(websiteIndex, 1)
+          this.websites.splice(websiteIndex, 1);
         }
       });
   }
