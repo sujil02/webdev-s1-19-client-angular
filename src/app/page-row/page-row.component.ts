@@ -9,7 +9,7 @@ import PageService from '../services/PageService';
 })
 export class PageRowComponent implements OnInit {
 
-  @Input() row
+  @Input() row;
   span = 6;
   @Input() websiteId;
   @Input() pageId;

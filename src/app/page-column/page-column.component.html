@@ -1,4 +1,10 @@
-  New Column
-<button>
+New Column
+
+<app-widget [row]="row"
+            [column]="column"
+            [widget]="widget"
+            *ngFor="let widget of column.widgets">
+</app-widget>
+<button (click)="addWidget()">
   Add Widget
 </button>

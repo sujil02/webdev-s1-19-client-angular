@@ -1,10 +1,10 @@
 <span
-  (mouseleave)="hideWidgetToolbar=true">
+  (click)="hideWidgetToolbar=true">
   <i class="fa fa-gear"
      (mouseenter)="hideWidgetToolbar=false"></i>
   <span
     [hidden]="hideWidgetToolbar"
-    (mouseleave)="hideWidgetToolbar=true">
+    (click)="hideWidgetToolbar=true">
     <a [href]="'/layout/edit/widget/' + widget._id" class="fa fa-pencil"></a>
     <i (click)="deleteWidget()"
        class="fa fa-remove"></i>

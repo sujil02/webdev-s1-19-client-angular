@@ -8,26 +8,27 @@ import Model from '../../../models/Model';
   styleUrls: ['./widget-toolbar.component.css']
 })
 export class WidgetToolbarComponent implements OnInit {
-  hideWidgetToolbar = true
+  hideWidgetToolbar = true;
   @Input() row;
   @Input() col;
   @Input() widget;
 
-  constructor(private model: Model) { }
+  constructor(private model: Model) {
+  }
 
   ngOnInit() {
   }
 
   deleteWidget() {
-    this.model.deleteWidget(this.row, this.col, this.widget)
+    this.model.deleteWidget(this.row, this.col, this.widget);
   }
 
   moveWidgetUp() {
-    this.model.moveWidgetUp(this.row, this.col, this.widget)
+    this.model.moveWidgetUp(this.row, this.col, this.widget);
   }
 
   moveWidgetDown() {
-    this.model.moveWidgetDown(this.row, this.col, this.widget)
+    this.model.moveWidgetDown(this.row, this.col, this.widget);
   }
 
   moveWidgetLeft() {

@@ -1,6 +1,11 @@
 <div class="row" style="min-height: 50px; background-color: lightgray; margin-bottom: 5px">
   <app-page-column
     style="min-height: 50px; background-color: lightcoral; margin: 5px"
+    [row]="row"
+    [column]="column"
+    [page]="page"
+    [pageId]="pageId"
+    [websiteId]="websiteId"
     [ngClass]="'col-' + column.span"
     *ngFor="let column of row.columns">
   </app-page-column>
@@ -8,3 +13,4 @@
 <button (click)="addColumn()">
   Add Column
 </button>
+

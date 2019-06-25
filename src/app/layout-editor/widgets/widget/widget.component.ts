@@ -7,9 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class WidgetComponent implements OnInit {
 
-  @Input() row
-  @Input() column
-  @Input() widget
+  @Input() row;
+  @Input() column;
+  @Input() widget;
 
   constructor() { }
 

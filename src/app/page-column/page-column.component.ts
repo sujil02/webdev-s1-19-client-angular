@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import PageService from '../services/PageService';
 
 @Component({
   selector: 'app-page-column',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageColumnComponent implements OnInit {
 
-  constructor() { }
+  @Input() website;
+  @Input() row;
+  @Input() column;
+  @Input() widgets;
+  @Input() page;
+  @Input() pageId;
+  @Input() websiteId;
+
+  constructor(private service: PageService) {
+  }
 
   ngOnInit() {
+  }
+
+  addWidget = () => {
+    const widget = {
+      id: '1',
+      title: 'This is New Widget',
+      size: '3',
+      type: 'HEADING',
+      text: 'Heading Widget'
+    };
+    this.column.widgets.push(widget);
+    this.page.updatePage(this.websiteId, this.pageId, this.page);
   }
 
 }
