@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
         console.log(users);
         if (users != null) {
           this.router.navigate(['login']);
+          window.alert('User successfully registered');
         }
       });
   }

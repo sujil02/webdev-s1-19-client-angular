@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
         console.log(user);
         if (user != null) {
           this.router.navigate(['profile', user._id]);
+        } else {
+          window.alert('Credentials Invalid Please Try Again');
         }
       });
   }
