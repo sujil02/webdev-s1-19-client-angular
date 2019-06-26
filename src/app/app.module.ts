@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { routing } from './app.routing';
-import { UserService } from './services/user.service.client';
+import { UserService } from './services/UserService';
 import { CourseNavigatorServiceClient } from './services/CourseNavigatorServiceClient';
 import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { PageComponent } from './layout-editor/page/page.component';
@@ -64,6 +64,7 @@ import { RowToolbarComponent } from './row-toolbar/row-toolbar.component';
     { provide: CourseNavigatorServiceClient, useClass: CourseNavigatorServiceClient },
 
     { provide: WebsiteService, useClass: WebsiteService },
+    { provide: UserService, useClass: UserService },
     { provide: PageService, useClass: PageService },
 
     { provide: LayoutService, useClass: LayoutService },

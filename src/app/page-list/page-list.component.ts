@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import PageService from '../services/PageService';
 
@@ -10,28 +10,36 @@ import PageService from '../services/PageService';
 export class PageListComponent implements OnInit {
 
   constructor(private service: PageService,
-              private router: ActivatedRoute) { }
+              private router: ActivatedRoute) {
+  }
 
-  pages = []
-  websiteId = ''
+  pages = [];
+  websiteId = '';
+  editing = false;
 
   ngOnInit() {
-    this.router.params.subscribe(params =>
-    {
-      this.websiteId = params.websiteId;
-      this.service.findPagesForWebsite(params.websiteId)
-        .then(pages => this.pages = pages)
-    }
-    )
+    this.router.params.subscribe(params => {
+        this.websiteId = params.websiteId;
+        this.service.findPagesForWebsite(params.websiteId)
+          .then(pages => this.pages = pages);
+      }
+    );
   }
 
   appendPage() {
     const pageObj = {
       title: 'New Page'
-    }
+    };
     this.service.createPage(this.websiteId, pageObj)
       .then(page => this.pages.push(pageObj))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
 
   }
+
+  setEditing = (website, pageId, page, editing) => {
+    website.editing = editing;
+    if (editing === false) {
+      this.service.updatePage(website._id, pageId, page);
+    }
+  };
 }

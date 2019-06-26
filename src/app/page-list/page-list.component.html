@@ -4,6 +4,15 @@
     <a [routerLink]="'/websites/' + websiteId + '/pages/' + page._id">
       {{page.title}}
     </a>
+<!--    <input-->
+<!--      [(ngModel)]="page.title"-->
+<!--      [hidden]="!page.editing"/>-->
+<!--    <i [hidden]="page.editing"-->
+<!--       (click)="setEditing(websiteId,page._id,page, true)"-->
+<!--       class="fa fa-pencil float-right"></i>-->
+<!--    <i [hidden]="!page.editing"-->
+<!--       (click)="setEditing(websiteId,page._id,page, false)"-->
+<!--       class="fa fa-check float-right"></i>-->
   </li>
 </ul>
 <br/>

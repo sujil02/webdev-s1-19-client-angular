@@ -45,4 +45,9 @@ export class WidgetToolbarComponent implements OnInit {
   moveWidgetRight() {
 
   }
+
+  typeChangeName = value => {
+    this.widget.type = value;
+    this.service.updatePage(this.websiteId, this.pageId, this.page);
+  };
 }
