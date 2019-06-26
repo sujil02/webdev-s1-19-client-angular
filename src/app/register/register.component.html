@@ -1,5 +1,56 @@
 <h1>Register</h1>
 <br/>
-<a routerLink="/login">
-  Sign In!
-</a>
+
+<div class="container">
+
+  <br>
+  <h2>Register</h2>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text"
+             class="form-control"
+             id="username"
+             value="Alice"
+             [(ngModel)]="user.username"
+             name="username">
+    </div>
+
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="password"
+             class="form-control"
+             [(ngModel)]="user.password"
+             id="password">
+    </div>
+    <div class="form-group">
+      <label for="firstName">firstName</label>
+      <input type="text"
+             class="form-control"
+             id="firstName"
+             [(ngModel)]="user.firstName"
+             value="Alice"
+             name="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">lastName</label>
+      <input type="text"
+             class="form-control"
+             [(ngModel)]="user.lastName"
+             id="lastName"
+             value="Wonderland"
+             name="lastName">
+    </div>
+    <br>
+    <button type="button"
+            class="btn btn-success col-sm-12"
+            (click)="register(user)">
+      Register
+    </button>
+    <br>
+  <br>
+  <button routerLink="/login"
+          type="button"
+          class="btn btn-primary col-sm-12">
+    Sign In
+  </button>
+</div>

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+
 @Injectable()
 export class UserService {
   // users = [
@@ -19,6 +20,7 @@ export class UserService {
       }
     });
   }
+
   // findUserByCredential(username: String, password: String) {
   //   for (let i = 0; i < this.users.length; i++) {
   //     const user = this.users[i];
@@ -38,6 +40,16 @@ export class UserService {
   //     }
   //   }
   // }
+  register(user) {
+    return fetch('https://lit-thicket-82010.herokuapp.com/api/register', {
+      method: 'post',
+      body: JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
+
   findUserById(userId) {
     return fetch('https://lit-thicket-82010.herokuapp.com/api/profile/' + userId)
       .then(response => response.json());
